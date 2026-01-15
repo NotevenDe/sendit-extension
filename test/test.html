@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradingView 弹幕插件 - 本地测试页</title>
+    <style>
+      body {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        margin: 0;
+        padding: 24px;
+        background: #f6f7fb;
+      }
+      .card {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+      .tradingview-widget-container {
+        height: 560px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(180deg, #0b1220, #0b1220);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .fake-chart {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: rgba(255, 255, 255, 0.88);
+      }
+      .fake-chart small {
+        display: block;
+        margin-top: 8px;
+        opacity: 0.75;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2 style="margin: 0 0 12px 0">本地测试页（模拟 TradingView 容器）</h2>
+      <p style="margin: 0 0 14px 0; color: rgba(0, 0, 0, 0.6)">
+        这个 div 使用了 <code>.tradingview-widget-container</code> 类名，插件会把输入框插到它下面，并在上面加弹幕层。
+      </p>
+
+      <div class="tradingview-widget-container">
+        <div class="fake-chart">
+          <div style="text-align: center">
+            <div style="font-size: 18px; font-weight: 600">Fake TradingView Chart</div>
+            <small>用于测试注入 + 弹幕（无需真实 TradingView）</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

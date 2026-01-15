@@ -1,0 +1,78 @@
+{
+  "manifest_version": 3,
+  "name": "Sendit",
+  "version": "0.1.0",
+  "description": "Sendit is a browser extension that allows you to addventures with your friends.",
+
+  "icons": {
+    "16": "src/assets/img/logo.png",
+    "32": "src/assets/img/logo.png",
+    "48": "src/assets/img/logo.png",
+    "128": "src/assets/img/logo.png"
+  }, 
+  "permissions": ["storage", "scripting", "sidePanel"],
+  "background": {
+    "service_worker": "src/core/background.js"
+  },
+  "action": {
+    "default_title": "Sendit",
+    "default_popup": "src/ui/popup.html",
+    "default_icon": {
+      "16": "src/assets/img/logo.png",
+      "32": "src/assets/img/logo.png"
+    }
+
+  },
+  "side_panel": {
+    "default_path": "src/ui/popup.html"
+  },
+  "options_page": "src/ui/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web3.okx.com/*",
+        "https://gmgn.ai/*",
+        "https://pump.fun/*",
+        "https://web3.binance.com/*",
+        "https://flap.sh/*",
+        "https://ave.ai/*",
+        "https://trends.fun/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "src/vendor/awesome-danmaku.browser.js",
+        "src/vendor/emoji-button.min.js",
+        "src/vendor/canvas-confetti.browser.js",
+        "src/ui/chat_ui.js",
+        "src/ui/comment_ui.js",
+        "src/core/ws_client.js",
+        "src/setting/about.js",
+        "src/setting/danmaku.js",
+        "src/core/content.js"
+      ],
+      "css": ["src/ui/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://web3.okx.com/*",
+    "https://gmgn.ai/*",
+    "https://pump.fun/*",
+    "https://web3.binance.com/*",
+    "https://flap.sh/*",
+    "https://ave.ai/*",
+    "https://trends.fun/*",
+
+    "wss://web3.okx.com/*",
+    "wss://*.okx.com/*",
+    "wss://gmgn.ai/*",
+    "wss://*.gmgn.ai/*",
+    "wss://pump.fun/*",
+    "wss://*.pump.fun/*",
+    "wss://web3.binance.com/*",
+    "wss://*.binance.com/*",
+    "wss://flap.sh/*",
+    "wss://ave.ai/*",
+    "wss://trends.fun/*"
+  ]
+}

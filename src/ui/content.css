@@ -1,0 +1,1701 @@
+
+
+
+.tv-danmaku-toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+.tv-danmaku-toast {
+  min-width: 280px;
+  max-width: 400px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  line-height: 1.5;
+  pointer-events: auto;
+  animation: tv-toast-slide-in 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tv-danmaku-toast-success {
+  border-left: 3px solid #4ade80;
+}
+
+.tv-danmaku-toast-error {
+  border-left: 3px solid #f87171;
+}
+
+.tv-danmaku-toast-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tv-danmaku-toast-content {
+  flex: 1;
+}
+
+@keyframes tv-toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes tv-toast-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.tv-danmaku-toast.hiding {
+  animation: tv-toast-slide-out 0.3s ease-in forwards;
+}
+
+.tv-danmaku-root {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.tv-danmaku-ui {
+  position: absolute;
+  z-index: 2147483647;
+  pointer-events: auto;
+}
+
+.tv-danmaku-ui-centered {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+}
+
+.tv-danmaku-glass {
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.tv-danmaku-ui-inner {
+  padding: 10px 10px;
+}
+
+.tv-danmaku-settings-btn {
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.tv-danmaku-settings-panel {
+  margin-top: 8px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.9);
+  width: min(520px, calc(100vw - 24px));
+}
+
+.tv-danmaku-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tv-danmaku-settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+
+.tv-danmaku-field label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.tv-danmaku-field input[type="range"] {
+  width: 100%;
+}
+
+.tv-danmaku-field input[type="number"],
+.tv-danmaku-field select,
+.tv-danmaku-field input[type="color"] {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 6px 8px;
+  outline: none;
+}
+
+.tv-danmaku-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tv-danmaku-muted {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.tv-danmaku-toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.0);
+}
+
+.tv-danmaku-name {
+  width: 86px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tv-danmaku-input {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tv-danmaku-input:focus {
+  border-color: rgba(34, 197, 94, 0.9);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+}
+
+.tv-danmaku-send {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  background: rgba(34, 197, 94, 0.95);
+  min-width: 88px;
+  text-align: center;
+}
+
+.tv-danmaku-tvbtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  pointer-events: auto;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+  user-select: none;
+}
+
+.tv-danmaku-tvbtn:hover {
+  border-color: rgba(34, 197, 94, 0.55);
+}
+
+.tv-danmaku-send:active {
+  transform: translateY(1px);
+}
+
+.tv-danmaku-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.tv-danmaku-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2147483646;
+}
+
+.tv-danmaku-dom {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+.tv-danmaku-dom .tv-danmaku-node {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.tv-danmaku-dom .tv-danmaku-node:hover {
+  outline: 1px solid rgba(255, 255, 255, 0.22);
+  outline-offset: 2px;
+}
+
+.tv-danmaku-hover-tip {
+  position: fixed;
+  z-index: 2147483647;
+  pointer-events: none;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  line-height: 1.35;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  max-width: min(320px, calc(100vw - 24px));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: none;
+}
+
+
+.tv-voice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.tv-voice-card {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.30);
+  padding: 12px;
+  min-width: 0; 
+}
+
+.tv-voice-card-title {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tv-voice-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 10px;
+  min-width: 0; 
+}
+
+.tv-voice-room-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tv-voice-split {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  height: 100%;
+}
+
+.tv-voice-peers,
+.tv-voice-logs {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.22);
+  padding: 10px;
+}
+
+.tv-voice-peerlist {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tv-voice-peer {
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+}
+
+.tv-voice-logbox {
+  margin-top: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.tv-voice-inputrow {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  min-width: 0; 
+}
+
+.tv-danmaku-host {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+}
+
+.tv-danmaku-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tv-danmaku-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+}
+
+.tv-danmaku-modal {
+  width: min(420px, calc(100vw - 24px));
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 12px 12px;
+}
+
+.tv-danmaku-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tv-danmaku-modal-title {
+  font-weight: 700;
+}
+
+.tv-danmaku-modal-close {
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tv-danmaku-modal-tabs {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.tv-danmaku-modal-tab {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+}
+
+.tv-danmaku-modal-tab.is-active {
+  background: rgba(41, 98, 255, 0.20);
+  border-color: rgba(41, 98, 255, 0.55);
+}
+
+.tv-danmaku-modal-panel {
+  display: none;
+}
+
+.tv-danmaku-modal-panel.is-active {
+  display: block;
+}
+
+.tv-danmaku-color-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.tv-danmaku-color-btn {
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.tv-danmaku-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.tv-danmaku-color-btn.is-active {
+  border-color: rgba(41, 98, 255, 0.85);
+  box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.18);
+}
+
+.tv-danmaku-color-btn.is-locked {
+  opacity: 0.42;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.tv-danmaku-color-btn .tv-danmaku-lock {
+  opacity: 0.85;
+  font-size: 12px;
+}
+
+.tv-danmaku-iconbtn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d4dc;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tv-danmaku-iconbtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tv-danmaku-iconbtn:active {
+  transform: translateY(1px);
+}
+
+.tv-danmaku-iconbtn svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.tv-danmaku-modal-btn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 12px;
+  background: rgba(41, 98, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+}
+
+.tv-danmaku-modal-btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tv-danmaku-modal-input {
+  width: 100%;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.42);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0 10px;
+  outline: none;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.tv-danmaku-modal-input:focus {
+  border-color: rgba(41, 98, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.22);
+}
+
+/* 为 select 下拉框添加黑色玻璃透明效果 */
+select.tv-danmaku-modal-input {
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(255,255,255,0.7)' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+}
+
+select.tv-danmaku-modal-input option {
+  background: rgba(0, 0, 0, 0.85);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 8px;
+}
+
+.tv-danmaku-kv {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 8px 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tv-danmaku-item {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+  will-change: transform;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 14px;
+}
+
+.tv-danmaku-dock {
+  pointer-events: auto;
+}
+  
+.tv-danmaku-dock-bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 10px;
+  gap: 8px;
+
+  
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+  
+.tv-danmaku-dock-chatbtn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d1d4dc;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tv-danmaku-dock-chatbtn[hidden] {
+  display: none !important;
+}
+
+.tv-danmaku-dock-inputwrap {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 120px;
+  max-width: 400px;
+}
+
+.tv-danmaku-dock-inputwrap .tv-danmaku-dock-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tv-danmaku-dock-input {
+  height: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+  
+.tv-danmaku-dock-input:focus {
+  border-color: rgba(41, 98, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.22);
+}
+
+
+.tv-voice-inputrow .tv-danmaku-dock-input {
+  flex: 1;
+  min-width: 0; 
+}
+
+.tv-danmaku-dock-logo {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tv-danmaku-dock-logo svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.tv-danmaku-dock-action {
+  position: absolute;
+  right: 34px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: none !important;
+  border: none !important;
+}
+
+.tv-danmaku-dock-action:hover {
+  background: none !important;
+}
+
+.tv-danmaku-dock-action:active {
+  transform: translateY(-50%) !important;
+}
+
+.tv-danmaku-dock-emoji {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: none !important;
+  border: none !important;
+}
+
+.tv-danmaku-dock-emoji:hover {
+  background: none !important;
+}
+
+.tv-danmaku-dock-emoji:active {
+  transform: translateY(-50%) !important;
+}
+  
+.tv-danmaku-dock-send {
+  height: 28px;
+}
+
+.tv-danmaku-dock-config {
+  height: 28px;
+}
+
+
+.tv-danmaku-chat {
+  position: fixed;
+  width: 360px;
+  min-width: 300px;
+  max-width: min(420px, 70vw);
+  z-index: 2147483647;
+  max-height: 550px;
+  pointer-events: auto;
+  
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex;
+  flex-direction: column;
+}
+
+
+.tv-danmaku-comment {
+  position: fixed;
+  width: 360px;
+  min-width: 300px;
+  max-width: min(420px, 70vw);
+  z-index: 2147483647;
+  max-height: 550px; 
+  pointer-events: auto;
+  
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex;
+  flex-direction: column;
+}
+
+.tv-danmaku-comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  user-select: none;
+  cursor: move;
+}
+
+.tv-danmaku-comment-header:active {
+  cursor: grabbing;
+}
+
+.tv-danmaku-comment-title {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.tv-danmaku-comment-ca {
+  color: rgba(100, 200, 255, 0.9);
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: text;
+  white-space: nowrap;
+}
+
+.tv-danmaku-comment-count {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+
+.tv-danmaku-comment-sort {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.tv-danmaku-comment-sort:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tv-danmaku-comment-sort:active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tv-danmaku-comment-sort svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-comment-body {
+  padding: 12px 14px;
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  line-height: 1.6;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.tv-danmaku-comment-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
+.tv-danmaku-comment-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tv-danmaku-comment-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.tv-danmaku-comment-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.tv-danmaku-comment-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.tv-danmaku-comment-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-comment-item:last-child {
+  border-bottom: none;
+}
+
+.tv-danmaku-comment-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tv-danmaku-comment-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.tv-danmaku-comment-name {
+  color: rgba(100, 200, 255, 0.9);
+  font-weight: 500;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-comment-text-wrapper {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  
+}
+
+.tv-danmaku-comment-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  line-height: 1.5;
+  display: block;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+
+.tv-danmaku-comment-text-wrapper.tv-danmaku-comment-text-expanded {
+  max-height: none !important;
+  overflow: visible;
+  height: auto;
+}
+
+.tv-danmaku-comment-text-wrapper.tv-danmaku-comment-text-expanded .tv-danmaku-comment-text {
+  white-space: pre-wrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: break-word !important;
+}
+
+.tv-danmaku-comment-expand {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  color: rgba(100, 200, 255, 0.8);
+  font-size: 11px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-comment-expand:hover {
+  background: rgba(100, 200, 255, 0.1);
+  color: rgba(100, 200, 255, 1);
+}
+
+.tv-danmaku-comment-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-comment-like {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 11px;
+}
+
+.tv-danmaku-comment-like:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 107, 107, 0.9);
+}
+
+.tv-danmaku-comment-like svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.tv-danmaku-comment-like-count {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.tv-danmaku-comment-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-comment-info:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tv-danmaku-comment-info svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+}
+
+
+.tv-danmaku-comment-time {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+
+.tv-danmaku-comment-pagination {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.tv-danmaku-comment-pagination-btn {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-comment-pagination-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tv-danmaku-comment-pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tv-danmaku-comment-pagination-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+
+.tv-danmaku-comment-menu {
+  position: fixed;
+  z-index: 2147483648;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 0;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.tv-danmaku-comment-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+  gap: 8px;
+}
+
+.tv-danmaku-comment-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-comment-menu-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tv-danmaku-comment-menu-value {
+  color: rgba(100, 200, 255, 0.9);
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.tv-danmaku-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 44px;
+  padding: 0 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+}
+
+.tv-danmaku-chat-search {
+  flex: 1;
+  min-width: 0;
+  max-width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.tv-danmaku-chat-search-input {
+  width: 100%;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-chat-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.tv-danmaku-chat-search-input:focus {
+  border-color: rgba(41, 98, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-chat-title {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.2;
+  flex: 0 0 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tv-danmaku-chat-stats {
+  display: none;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.tv-danmaku-chat-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tv-danmaku-chat-stat-icon {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.tv-danmaku-chat-online-count,
+.tv-danmaku-chat-record-count {
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.tv-danmaku-chat-online-count {
+  color: rgba(100, 200, 255, 0.9);
+}
+
+.tv-danmaku-chat-record-count {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tv-danmaku-chat-body {
+  padding: 12px 14px;
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  line-height: 1.6;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.tv-danmaku-chat-hint {
+  color: rgba(255, 255, 255, 0.65);
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-messages {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tv-danmaku-chat-message-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
+.tv-danmaku-chat-message-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tv-danmaku-chat-message-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-message-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-message-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.tv-danmaku-chat-message-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-chat-message-item:last-child {
+  border-bottom: none;
+}
+
+.tv-danmaku-chat-message-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tv-danmaku-chat-message-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.tv-danmaku-chat-message-name {
+  color: rgba(100, 200, 255, 0.9);
+  font-weight: 500;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-message-text-wrapper {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.tv-danmaku-chat-message-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  line-height: 1.5;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.tv-danmaku-chat-message-text-wrapper.tv-danmaku-chat-message-text-expanded {
+  max-height: none !important;
+  overflow: visible;
+  height: auto;
+}
+
+.tv-danmaku-chat-message-text-wrapper.tv-danmaku-chat-message-text-expanded .tv-danmaku-chat-message-text {
+  white-space: pre-wrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: break-word !important;
+}
+
+.tv-danmaku-chat-message-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-message-time {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-message-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-message-info:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tv-danmaku-chat-message-info svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+}
+
+
+.tv-danmaku-chat-menu {
+  position: fixed;
+  z-index: 2147483648;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px 0;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.tv-danmaku-chat-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+  gap: 8px;
+}
+
+.tv-danmaku-chat-menu-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-chat-menu-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tv-danmaku-chat-menu-value {
+  color: rgba(100, 200, 255, 0.9);
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.tv-danmaku-chat-rooms {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  -webkit-overflow-scrolling: touch; 
+}
+
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.tv-danmaku-chat-room-item {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+}
+
+.tv-danmaku-chat-room-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tv-danmaku-chat-room-item:last-child {
+  border-bottom: none;
+}
+
+.tv-danmaku-chat-close {
+  height: 26px;
+  padding: 0 10px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-chat-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.tv-danmaku-chat-pagination {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-pagination-btn {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tv-danmaku-chat-pagination-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tv-danmaku-chat-pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tv-danmaku-chat-pagination-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.tv-danmaku-chat-home,
+.tv-danmaku-chat-back {
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tv-danmaku-chat-home:hover,
+.tv-danmaku-chat-back:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tv-danmaku-chat-home:active,
+.tv-danmaku-chat-back:active {
+  transform: translateY(1px);
+}
+
+.tv-danmaku-chat-rooms-page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tv-danmaku-chat-rooms {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 4px;
+  padding-bottom: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+.tv-danmaku-chat-rooms::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.tv-danmaku-chat-room-item {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tv-danmaku-chat-room-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tv-danmaku-chat-room-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.tv-danmaku-chat-room-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tv-danmaku-chat-room-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tv-danmaku-chat-room-name {
+  color: rgba(100, 200, 255, 0.9);
+  font-weight: 500;
+  font-size: 13px;
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tv-danmaku-chat-room-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tv-danmaku-chat-room-online {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(100, 200, 255, 0.9);
+}
+
+.tv-danmaku-chat-room-messages {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.tv-danmaku-chat-room-time {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+}
+
+.tv-danmaku-chat-rooms-pagination {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+  

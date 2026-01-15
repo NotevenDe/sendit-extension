@@ -1,0 +1,17 @@
+{
+	"name": "sendit",
+	"version": "0.1.0",
+	"scripts": {
+		"build": "node build.js",
+		"build:dev": "node build.js --dev",
+		"package": "node build.js && node package.js"
+	},
+	"devDependencies": {
+		"@joeattardi/emoji-button": "^4.6.4",
+		"esbuild": "^0.19.0",
+		"archiver": "^6.0.1"
+	},
+	"dependencies": {
+		"canvas-confetti": "^1.9.4"
+	}
+}

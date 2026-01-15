@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradingView 弹幕 - 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="header">
+        <div>
+          <div class="title">TradingView 弹幕设置</div>
+          <div class="sub">首次使用需要登录并保存"名字/头像/jaw key"。</div>
+        </div>
+        <div class="badge" id="loginBadge">检查中…</div>
+      </header>
+
+      <section class="card" id="loginSection">
+        <div class="cardTitle">连接钱包登录</div>
+        <div class="help">未登录时仅展示此区域。登录后将显示"身份设置"。</div>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn" id="btnLogin">连接钱包（OKX / WalletConnect）</button>
+        </div>
+        <label class="field" style="margin-top:10px;">
+          <span>access token</span>
+          <input id="jawKey" type="text" placeholder="登录后自动填充" />
+        </label>
+      </section>
+
+      <section class="card" id="profileSection">
+        <div class="cardTitle">身份设置</div>
+        <div class="grid2">
+          <label class="field">
+            <span>名字</span>
+            <input id="nickname" type="text" maxlength="16" placeholder="我" />
+          </label>
+          <label class="field">
+            <span>头像</span>
+            <input id="avatarFile" type="file" accept="image/*" />
+          </label>
+        </div>
+        <div class="avatarRow">
+          <img id="avatarPreview" class="avatar" alt="avatar" />
+          <div class="help">头像会转成 DataURL 存到本地存储。</div>
+        </div>
+        <div class="row" style="margin-top:12px;">
+          <button class="btn btnGhost" id="btnLogout">退出登录</button>
+        </div>
+      </section>
+
+      <section class="footer">
+        <button class="btn btnPrimary" id="btnSave">保存</button>
+        <button class="btn btnGhost" id="btnReset">恢复默认</button>
+        <div class="help" id="saveTip"></div>
+      </section>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
